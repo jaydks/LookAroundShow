@@ -15,6 +15,7 @@ import com.example.lookaroundshow.R
 import com.example.lookaroundshow.data.Show
 import com.example.lookaroundshow.databinding.FragmentCalendarBinding
 import com.example.lookaroundshow.helper.ShowAdapter
+import com.google.android.material.tabs.TabLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -30,6 +31,7 @@ class CalendarFragment : Fragment(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -62,6 +64,7 @@ class CalendarFragment : Fragment(), OnClickListener {
 
     private fun initSetOnClickListener() {
         binding.tvCalendarMy.setOnClickListener(this)
+        binding.tvCalendarLookAround.setOnClickListener(this)
     }
 
     private fun showTodayShow() {
@@ -71,7 +74,7 @@ class CalendarFragment : Fragment(), OnClickListener {
         todayShowList = showList.filter {
             (( it.startDate.replace(".", "").toInt() <= todayDate ) && (todayDate <= it.endDate.replace(".", "").toInt()))
         } as ArrayList<Show>
-        binding.tvCalendarTodayShow.text = "$date 에 하는 공연이에요! ${(todayShowList.size)}"
+        binding.tvCalendarTodayShow.text = "$date 에 하는 공연이에요! (${todayShowList.size}공연)"
 
         initRecyclerView()
     }
@@ -121,6 +124,10 @@ class CalendarFragment : Fragment(), OnClickListener {
             R.id.tv_calendar_my -> {
                 val intent = Intent(requireContext(), MyActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.tv_calendar_look_around -> {
+                val tabLayout: TabLayout = requireActivity().findViewById<TabLayout>(R.id.tab_layout)
+                tabLayout.getTabAt(0)?.select()
             }
         }
 
