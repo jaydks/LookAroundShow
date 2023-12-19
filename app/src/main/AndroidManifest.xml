@@ -15,19 +15,20 @@
         android:theme="@style/Theme.LookAroundShow"
         tools:targetApi="31">
         <activity
+            android:name=".BookActivity"
+            android:exported="false" />
+        <activity
             android:name=".presenter.MyActivity"
             android:exported="false" />
         <activity
             android:name=".presenter.LoginActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".presenter.BookActivity"
@@ -39,7 +40,7 @@
             android:theme="@style/Theme.LookAroundShow" />
         <activity
             android:name=".presenter.MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

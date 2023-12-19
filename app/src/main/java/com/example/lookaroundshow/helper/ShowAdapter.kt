@@ -67,7 +67,15 @@ class ShowAdapter(private val context: Context, private val showList: ArrayList<
         holder.itemView.setOnClickListener {
             Log.d("test", "test")
             val intent = Intent(context, ShowDetailActivity::class.java)
-            intent.putExtra("showId", showList.get(position).id)
+            intent.putExtra("title", showList.get(position).title)
+            intent.putExtra("poster", showList.get(position).poster)
+            intent.putExtra("hall", showList.get(position).hall)
+            intent.putExtra("duration", showList.get(position).duration)
+            intent.putExtra("date", showList.get(position).startDate + " ~ " + showList.get(position).endDate)
+            intent.putExtra("description", showList.get(position).descriptionString)
+            intent.putExtra("bookLink", showList.get(position).bookLink)
+            intent.putExtra("isLiked", showList.get(position).isLiked)
+
             context.startActivity(intent)
         }
     }
