@@ -27,15 +27,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <ImageView-->
-<!--            android:layout_marginHorizontal="20dp"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/iv_login_kakao"-->
-<!--            app:layout_constraintBottom_toTopOf="@id/tv_login_look_around"-->
-<!--            android:src="@drawable/img_login_kakao"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent" />-->
+        <ImageView
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_login_kakao"
+            app:layout_constraintBottom_toTopOf="@id/tv_login_look_around"
+            android:src="@drawable/img_login_kakao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
