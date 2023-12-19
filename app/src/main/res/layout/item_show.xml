@@ -68,11 +68,14 @@
         app:layout_constraintStart_toStartOf="@id/tv_show_hall"
         app:layout_constraintTop_toBottomOf="@id/tv_show_hall" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
+    <CheckBox
+        android:gravity="center"
+        android:button="@android:color/transparent"
+        android:checked="false"
+        android:background="@drawable/background_heart"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginEnd="5dp"
-        android:src="@drawable/img_heart_off"
         app:layout_constraintBottom_toBottomOf="@id/iv_show"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
