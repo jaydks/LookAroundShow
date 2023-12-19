@@ -3,8 +3,8 @@ package com.example.lookaroundshow.presenter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bumptech.glide.Glide
-import com.example.lookaroundshow.BookActivity
 import com.example.lookaroundshow.R
 import com.example.lookaroundshow.data.Show
 import com.example.lookaroundshow.databinding.ActivityMyBinding
@@ -38,6 +38,7 @@ class ShowDetailActivity : AppCompatActivity() {
         description = intent.getStringExtra("description").toString()
         bookLink = intent.getStringExtra("bookLink").toString()
         isLiked = intent.getStringExtra("isLiked").toString()
+        Log.d("booklink", bookLink)
 
         initClickListener()
         setView()

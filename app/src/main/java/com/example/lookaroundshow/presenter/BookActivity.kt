@@ -2,6 +2,8 @@ package com.example.lookaroundshow.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.webkit.WebViewClient
 import com.example.lookaroundshow.R
 import com.example.lookaroundshow.databinding.ActivityBookBinding
 import com.example.lookaroundshow.databinding.ActivityMyBinding
@@ -17,6 +19,12 @@ class BookActivity : AppCompatActivity() {
         startWebView()
     }
     private fun startWebView() {
-        //binding.webview.loadUrl()
+        val webSettings = binding.webview.settings
+        webSettings.javaScriptEnabled = true
+        webSettings.loadWithOverviewMode = true
+        binding.webview.webViewClient = WebViewClient()
+        val bookLink = intent.getStringExtra("bookLink").toString()
+        Log.d("booklink", bookLink)
+         binding.webview.loadUrl(bookLink)
     }
 }
