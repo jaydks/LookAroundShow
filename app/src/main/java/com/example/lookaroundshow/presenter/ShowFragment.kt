@@ -27,18 +27,28 @@ class ShowFragment : Fragment() {
     private lateinit var adapter: ShowAdapter
     private var showList = ArrayList<Show>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //readShow()
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_show, container, false)
+        initSetOnClickListener()
 
-        //initRecyclerView()
         return binding.root
+    }
+
+    private fun initSetOnClickListener() {
+        binding.ivSearch.setOnClickListener{
+            val searchText = binding.etShowRegion.text
+            var searchShowList = ArrayList<Show>()
+
+            searchShowList = showList.filter {
+                it.region == searchText.toString()
+            } as ArrayList<Show>
+
+            initRecyclerView(searchShowList)
+        }
+
     }
 
     override fun onResume() {
@@ -48,12 +58,15 @@ class ShowFragment : Fragment() {
             withContext(Dispatchers.IO) {
                 readShow()
             }
-            initRecyclerView()
+            withContext(Dispatchers.Main) {
+                initRecyclerView(showList)
+
+            }
         }
     }
 
-    private fun initRecyclerView() {
-        adapter = ShowAdapter(requireContext(), showList)
+    private fun initRecyclerView(list: java.util.ArrayList<Show>) {
+        adapter = ShowAdapter(requireContext(), list)
         binding.rvShow.layoutManager = LinearLayoutManager(requireContext())
         binding.rvShow.adapter = adapter
     }
@@ -66,7 +79,6 @@ class ShowFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 showList.clear()
                 for(data in snapshot.children) {
-                    Log.d("test", data.child("title").value.toString())
                     val show = Show(
                         1,
                         data.child("title").value.toString(),
@@ -92,31 +104,4 @@ class ShowFragment : Fragment() {
 
         })
     }
-
-    private fun writeShow() {
-        val database = Firebase.database
-        val myRef = database.getReference("second")
-
-        val show = Show(
-            1,
-            "해설이 있는 무용_Nude，누드－부산",
-            "부산",
-            "부산문화회과 중극장",
-            "70분",
-            "2023.12.27",
-            "2023.12.27",
-            "https://github.com/jaydks/LookAroundShow/assets/106398273/a237485d-7cf0-4a89-a0b0-7d509fc66b76",
-            "예매가능시간: 전일17시(월~토 관람 시)까지/전일 11시(일요일 관람 시)까지\n" +
-                    "\n" +
-                    "2023년 12월 27일 (수) 19:30",
-            "https://github.com/jaydks/LookAroundShow/assets/106398273/a237485d-7cf0-4a89-a0b0-7d509fc66b76",
-            "false",
-            "https://tickets.interpark.com/goods/23018336?app_tapbar_state=hide&"
-        )
-
-        myRef.child("8").setValue(show)
-    }
-
-
-
 }

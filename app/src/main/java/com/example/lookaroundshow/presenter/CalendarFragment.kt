@@ -29,11 +29,6 @@ class CalendarFragment : Fragment(), OnClickListener {
     private var todayShowList = ArrayList<Show>()
     private var date = String()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

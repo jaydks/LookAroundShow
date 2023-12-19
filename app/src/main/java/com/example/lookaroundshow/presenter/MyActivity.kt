@@ -2,10 +2,16 @@ package com.example.lookaroundshow.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lookaroundshow.data.Show
 import com.example.lookaroundshow.databinding.ActivityMyBinding
 import com.example.lookaroundshow.helper.ShowAdapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyBinding
@@ -16,164 +22,65 @@ class MyActivity : AppCompatActivity() {
         binding = ActivityMyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initRecyclerView()
+        readShow()
         initClickListener()
     }
 
+    private fun readShow() {
+        val database = Firebase.database
+        val myRef = database.getReference("second")
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                showList.clear()
+                for (data in snapshot.children) {
+                    Log.d("test", data.child("title").value.toString())
+                    val show = Show(
+                        1,
+                        data.child("title").value.toString(),
+                        data.child("region").value.toString(),
+                        data.child("hall").value.toString(),
+                        data.child("duration").value.toString(),
+                        data.child("startDate").value.toString(),
+                        data.child("endDate").value.toString(),
+                        data.child("poster").value.toString(),
+                        data.child("descriptionString").value.toString(),
+                        data.child("descriptionImage").value.toString(),
+                        data.child("liked").value.toString(),
+                        data.child("bookLink").value.toString()
+                    )
+                    showList.add(show)
+                }
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
     private fun initClickListener() {
-        binding.ivMyBack.setOnClickListener{
+        binding.ivMyBack.setOnClickListener {
             finish()
+        }
+        binding.tvMyLikedShow.setOnClickListener{
+            initRecyclerView()
         }
     }
 
     private fun initRecyclerView() {
-        setShowList()
-        adapter = ShowAdapter(this, showList)
-        binding.rvLikedShow.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        var likedList = ArrayList<Show>()
+
+        likedList = showList.filter {
+            it.isLiked.toString() == "true"
+        } as ArrayList<Show>
+
+
+        adapter = ShowAdapter(this, likedList)
+        binding.rvLikedShow.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.rvLikedShow.adapter = adapter
     }
-
-    private fun setShowList() {
-        showList = arrayListOf(
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-            Show(
-                1,
-                "뮤지컬 <레미제라블>",
-                "서울",
-                "블루스퀘어 신한카드홀",
-                "180분",
-                "2023.11.30",
-                "2024.03.10",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "예매가능시간: 관람 3시간 전까지",
-                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                "true",
-                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            ),
-        )
-    }}
+}
