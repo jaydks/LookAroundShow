@@ -1,9 +1,11 @@
 package com.example.lookaroundshow.presenter
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +15,7 @@ import com.example.lookaroundshow.databinding.FragmentCalendarBinding
 import com.example.lookaroundshow.databinding.FragmentShowBinding
 import com.example.lookaroundshow.helper.ShowAdapter
 
-class CalendarFragment : Fragment() {
+class CalendarFragment : Fragment(), OnClickListener {
     private lateinit var binding: FragmentCalendarBinding
     private lateinit var adapter: ShowAdapter
     private var showList = ArrayList<Show>()
@@ -30,8 +32,13 @@ class CalendarFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calendar, container, false)
 
         initRecyclerView()
+        initSetOnClickListener()
 
         return binding.root
+    }
+
+    private fun initSetOnClickListener() {
+        binding.tvCalendarMy.setOnClickListener(this)
     }
 
     private fun initRecyclerView() {
@@ -161,5 +168,15 @@ class CalendarFragment : Fragment() {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             )
         )
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.tv_calendar_my -> {
+                val intent = Intent(requireContext(), MyActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
     }
 }
