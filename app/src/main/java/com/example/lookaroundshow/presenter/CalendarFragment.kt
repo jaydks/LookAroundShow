@@ -51,6 +51,7 @@ class CalendarFragment : Fragment(), OnClickListener {
     private fun setShowList() {
         showList = arrayListOf(
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -64,6 +65,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -77,6 +79,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -90,6 +93,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -103,6 +107,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -116,6 +121,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -129,6 +135,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -142,6 +149,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -155,6 +163,7 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
+                1,
                 "뮤지컬 <레미제라블>",
                 "서울",
                 "블루스퀘어 신한카드홀",
@@ -166,10 +175,23 @@ class CalendarFragment : Fragment(), OnClickListener {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 true,
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
-            )
+            ),
+            Show(
+                1,
+                "뮤지컬 <레미제라블>",
+                "서울",
+                "블루스퀘어 신한카드홀",
+                "180분",
+                "2023.11.30",
+                "2024.03.10",
+                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
+                "예매가능시간: 관람 3시간 전까지",
+                "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
+                true,
+                "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
+            ),
         )
     }
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_calendar_my -> {

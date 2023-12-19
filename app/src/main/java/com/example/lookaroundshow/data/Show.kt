@@ -1,6 +1,7 @@
 package com.example.lookaroundshow.data
 
 data class Show(
+    val id: Int,
     val title: String,
     val region: String,
     val hall: String,
