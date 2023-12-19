@@ -11,6 +11,6 @@ data class Show(
     val poster: String,
     val descriptionString: String,
     val descriptionImage: String,
-    val isLiked: Boolean,
+    val isLiked: String,
     val bookLink: String
     )

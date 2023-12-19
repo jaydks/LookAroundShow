@@ -20,9 +20,9 @@ class ShowAdapter(private val context: Context, private val showList: ArrayList<
                 tvShowDate.text = show.startDate + " ~ " + show.endDate
                 tvShowHall.text = show.hall
                 Glide.with(context)
-                    .load("https://github-production-user-asset-6210df.s3.amazonaws.com/106398273/291582461-f1d35e53-8589-4531-a3f0-e1fac517f15b.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231219%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231219T123113Z&X-Amz-Expires=300&X-Amz-Signature=f4d1df343b8582e0377c3792f9d7eb70b1141262a80d4639a6f6edf7ae13eddd&X-Amz-SignedHeaders=host&actor_id=106398273&key_id=0&repo_id=733407939")
+                    .load(show.poster)
                     .into(ivShow)
-
+                cbShowHeart.isChecked = show.isLiked == "true"
             }
         }
     }

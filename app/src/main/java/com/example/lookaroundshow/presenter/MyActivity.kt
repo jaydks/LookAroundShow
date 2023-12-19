@@ -3,9 +3,7 @@ package com.example.lookaroundshow.presenter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lookaroundshow.R
 import com.example.lookaroundshow.data.Show
-import com.example.lookaroundshow.databinding.ActivityMainBinding
 import com.example.lookaroundshow.databinding.ActivityMyBinding
 import com.example.lookaroundshow.helper.ShowAdapter
 
@@ -48,7 +46,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -62,7 +60,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -76,7 +74,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -90,7 +88,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -104,7 +102,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -118,7 +116,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -132,7 +130,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -146,7 +144,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -160,7 +158,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
             Show(
@@ -174,7 +172,7 @@ class MyActivity : AppCompatActivity() {
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
                 "예매가능시간: 관람 3시간 전까지",
                 "https://github.com/jaydks/LookAroundShow/assets/106398273/f1d35e53-8589-4531-a3f0-e1fac517f15b",
-                true,
+                "true",
                 "https://tickets.interpark.com/goods/23012526?GoodsCode=23012526"
             ),
         )
