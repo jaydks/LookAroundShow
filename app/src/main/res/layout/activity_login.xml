@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,24 +24,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_marginHorizontal="20dp"
+            android:id="@+id/iv_login_kakao"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/iv_login_kakao"
-            app:layout_constraintBottom_toTopOf="@id/tv_login_look_around"
+            android:layout_marginHorizontal="20dp"
             android:src="@drawable/img_login_kakao"
+            app:layout_constraintBottom_toTopOf="@id/tv_login_look_around"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
             android:id="@+id/tv_login_look_around"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="둘러보기"
             android:layout_marginStart="10dp"
-            android:textSize="15sp"
             android:layout_marginBottom="40dp"
+            android:text="둘러보기"
             android:textColor="@color/black"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
